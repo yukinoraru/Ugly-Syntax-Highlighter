@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <script src='google-code-prettify/prettify.js'></script>
+    <script src='google-code-prettify/lang-css.js'></script>
+    <style>
+      /*<![CDATA[*/
+        body { margin: 0; padding: 0 }
+        pre { margin: 0;}
+      /*]]>*/
+    </style>
+    <script>
+      //<![CDATA[
+        // js
+      //]]>
+    </script>
+    <title>Test</title>
+    <link href='google-code-prettify/prettify.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body onload='prettyPrint()'><pre class='prettyprint lang-c'>#include &lt;stdio.h&gt;&#x000A;#include &lt;math.h&gt;&#x000A;&#x000A;int main(void){&#x000A;&#x000A;    int n;&#x000A;    double a,b,c,d,x1,x2;&#x000A;    char buf[16+1];&#x000A;&#x000A;    printf(&quot;2次方程式の解を求めます。\n&quot;);&#x000A;&#x000A;    /* 入力 */&#x000A;    printf(&quot;a b cをスペースで区切って入力して下さい:&quot;);&#x000A;    while(1){&#x000A;        fgets(buf, 16, stdin);&#x000A;        n = sscanf(buf,&quot;%lf %lf %lf&quot;, &amp;a, &amp;b, &amp;c);&#x000A;        if(n == 3){&#x000A;            if(a != 0 &amp;&amp; b != 0 &amp;&amp; c != 0){&#x000A;                break;&#x000A;            }&#x000A;            else{&#x000A;                printf(&quot;a,b,cは0以外の値である必要があります。\n&quot;);&#x000A;                printf(&quot;再入力:&quot;);&#x000A;                continue;&#x000A;            }&#x000A;        }&#x000A;        else if(n == -1){&#x000A;            continue;&#x000A;        }&#x000A;        else {&#x000A;            printf(&quot;Usage:a b c\n&quot;);&#x000A;             return 0;&#x000A;        }&#x000A;    }&#x000A;&#x000A;    /* 判別式の計算 */&#x000A;    d = b*b - 4*a*c;&#x000A;&#x000A;    /* 判別式が正のとき、解を計算 */&#x000A;    if(d &gt;= 0){&#x000A;        x1 = (-b + sqrt(d)) / (2.0 * a);&#x000A;        x2 = (-b - sqrt(d)) / (2.0 * a);&#x000A;        printf(&quot;x1 = %f(%E)\n&quot;,x1,a*x1*x1+b*x1+c);&#x000A;        printf(&quot;x2 = %f(%E)\n&quot;,x2,a*x2*x2+b*x2+c);&#x000A;            }&#x000A;    /* 判別式が負のとき、虚数解の表示 */&#x000A;            else{&#x000A;        printf(&quot;x1 = 虚数解\n&quot;);&#x000A;        printf(&quot;x2 = 虚数解\n&quot;);&#x000A;        }&#x000A;&#x000A;    return 0;&#x000A;}&#x000A;&#x000A;/*&#x000A;&#x000A;2次方程式の解を求めます。&#x000A;a b cをスペースで区切って入力して下さい:7 8 1&#x000A;x1 = -0.142857(4.759648E-17)&#x000A;x2 = -1.000000(0.000000E+00)&#x000A;&#x000A;2次方程式の解を求めます。&#x000A;a b cをスペースで区切って入力して下さい:1 2 1&#x000A;x1 = -1.000000(0.000000E+00)&#x000A;x2 = -1.000000(0.000000E+00)&#x000A;&#x000A;a b cをスペースで区切って入力して下さい:4 5 6&#x000A;x1 = 虚数解&#x000A;x2 = 虚数解&#x000A;&#x000A;2次方程式の解を求めます。&#x000A;a b cをスペースで区切って入力して下さい:2.9 82.1 234.4523&#x000A;x1 = -3.222466(2.678413E-14)&#x000A;x2 = -25.087879(6.483702E-14)&#x000A;&#x000A;*/</pre></body>
+</html>
