@@ -18,12 +18,20 @@
 
   $(function() {
     prettyPrint();
-    return $("#code").find("span").filter(function() {
+    $("#code").hide();
+    return $.each($("#code").find("span"), function(i, item) {
       var class_name, color, text;
+      console.info(item);
       class_name = $(this).attr("class");
       color = $("." + class_name).css("color");
       text = $(this).text();
-      return $(this).replaceWith("<font color=" + rgb2hex(color) + ">" + $(this).text(text).html() + "</font>");
+      if (nl2br(text) !== text) {
+        text = $(this).text(text).html();
+        text = nl2br(text.replace(RegExp(" ", "g"), "&nbsp;"));
+      } else {
+        text = $(this).text(text).html();
+      }
+      return $("#result").append("<font color=" + rgb2hex(color) + ">" + text + "</font>");
     });
   });
 
