@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px; }
+
+.row {
+  max-width: 1200px; }
+
+#working {
+  display: none;
+}
+
+pre {
+  margin: 0; }
+
+div {
+  &.foundation-header {
+    margin: 0 0 40px 0;
+    padding: 30px 0 0 0;
+    border-bottom: solid 1px #ccc;
+    h1 {
+      margin-bottom: 0;
+      padding: 0;
+      a {
+        color: #181818;
+        &:hover {
+          color: #181818; } } }
+    .subheader {
+      margin-bottom: 9px; } }
+  &.highlight {
+    margin-bottom: 12px; } }
+
+#mobileNav {
+  padding: 6px 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px; }
+
+#navModal {
+  padding-bottom: 10px;
+  dl.tabs {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 0;
+    dd a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background: rgba(255, 255, 255, 0.5); } } }
+
+img.beta {
+  position: absolute;
+  top: 0px;
+  right: 0px; }
+
+/* Footer */
+footer.row {
+  margin-top: 80px;
+  border-top: solid 1px #e6e6e6;
+  padding-top: 20px;
+  h6 {
+    color: #6f6f6f;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin-bottom: 4px; }
+  p {
+    color: #626262;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 18px; }
+  a {
+    color: #222222;
+    &:hover {
+      text-decoration: underline; } } }
+
+/* ZURB bar */
+
+#navBar {
+  background: #222222;
+  border-bottom: solid 4px #cf0033;
+  padding: 15px 20px 13px 20px;
+  h1, h2 {
+    margin-bottom: 0;
+    line-height: 1; }
+  h1 {
+    color: white;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    a {
+      color: #fff;
+      font-weight: bold; } }
+  strong {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    line-height: 14px;
+    position: relative;
+    bottom: 4px;
+    a {
+      line-height: 14px;
+      color: #fff;
+      font-weight: 500;
+      padding-right: 12px;
+      &.button {
+        padding: 4px 10px;
+        font-weight: bold; } } } }
+
+@media handheld, only screen and (max-width: 767px) {
+  #navBar {
+    padding-left: 20px;
+    padding-right: 20px; } }

@@ -1,0 +1,121 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+
+    / -------------------------------------------
+    / Included CSS Files
+    / -------------------------------------------
+    / Google Code Prettify
+    %link{:href => "vendor/google-code-prettify/prettify.css", :rel => "stylesheet", :type => "text/css"}
+    / Foundation
+    %link{:href => "stylesheets/foundation.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/app.css", :rel => "stylesheet", :type => "text/css"}
+    / Original
+    %link{:href => "stylesheets/style.css", :rel => "stylesheet", :type => "text/css"}
+
+    / -------------------------------------------
+    / Included JS Files
+    / -------------------------------------------
+    / jQuery
+    %script{:src => "javascripts/jquery.min.js"}
+    %script{:src => "javascripts/jquery.autoresize.js"}
+    %script{:src => "javascripts/jquery.textchange.min.js"}
+    / Google Code Prettify
+    %script{:src => "vendor/google-code-prettify/prettify.js"}
+    %script{:src => "vendor/google-code-prettify/lang-css.js"}
+    / Foundation
+    %script{:src => "javascripts/foundation.js"}
+    %script{:src => "javascripts/modernizr.foundation.js"}
+    %script{:src => "javascripts/app.js"}
+    / original uglifier
+    %script{:src => "javascripts/misc.js"}
+
+    %title Ugly Syntax Highlighter
+
+  %body
+
+    / navigation bar
+    #navBar.container
+      .row
+        .four.columns
+          %a#mobileNav.small.nice.button.show-on-phones{"data-reveal-id" => "navModal", :href => "#"} Nav
+          %h1
+            %a{:href => "../"} Ugly Syntax Highlighter
+        .eight.columns.hide-on-phones
+          %strong.right
+            %a{:href => "#"} Features
+            %a{:href => "#"} Usage
+            %a{:href => "http://github.com/zurb/foundation"} Github
+            %a.small.red.nice.button.src-download{:href => "../files/foundation-download-2.2.1.zip"} Download
+    / container
+    .container
+      .row
+        .twelve.columns
+          .foundation-header
+            %h1
+              %a{:href => "index.php"} Ugly Syntax Highlighter
+            %h4.subheader It's not smart, but compatible for clipboard.
+      .row
+        .twelve.columns
+          .six.columns
+            .twelve.columns
+              %h4 1. Paste your code
+            .panel
+              .twelve.columns
+                .panel{:style => "overflow:hidden;"}
+                  %div{:style => "float:left;"}
+                    Language:
+                    %br/
+                    %select#niceDropdown
+                      %option C/C++
+                      %option Ruby
+                      %option PHP
+                  %div{:style => "float:left;margin: 0 18px 18px; padding: 0px 20px 0 19px; border-left: 1px solid #ddd; "}
+                    Options:
+                    %br/
+                    %label{:for => "checkbox1"}
+                      %input#checkbox1{:type => "checkbox"}/
+                      Show Line Number
+                    %br/
+              %textarea#src.expand{:placeholder => "Paste your code here...", :rows => "13"}
+          .six.columns
+            .twelve.columns
+              %h4 2. Copy to clipboard
+            .panel
+              .twelve.columns
+                .panel{:style => "overflow:hidden;"}
+                  %div{:style => "float:left;"}
+                    %p
+                      %span#select-button.nice.radius.small.red.button Select all
+              #dest
+                highlight code will be shown here...
+
+      / footer
+      %footer.row
+        %section.five.columns
+          %h6
+            %strong Made by ZURB
+          %p
+            Foundation is made by
+            = succeed "," do
+              %a{:href => "http://www.zurb.com/"} ZURB
+            an
+            %a{:href => "http://www.zurb.com/words/design-process"} interaction design and strategy company
+            located in Campbell, California. We've put over 10 years of experience building web products, services and websites into this framework.
+            %a{:href => "../about.php"} Foundation Info and Goodies →
+        %section.three.columns
+          %h6
+            %strong Using Foundation?
+          %p
+            Let us know how you're using Foundation and we might feature you as an example!
+            %a{:href => "mailto:foundation@zurb.com?subject=I'm%20using%20Foundation"} Get in touch →
+        %section.four.columns
+          %h6
+            %strong Need some help?
+          %p
+            For quick answers or help
+            %a{:href => "mailto:foundation@zurb.com"} email us →
+
+
+    %pre{:class => "prettyprint lang-c linenums", :id => "working"}>
