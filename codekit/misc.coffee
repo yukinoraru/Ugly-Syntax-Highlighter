@@ -1,11 +1,9 @@
+#################################################
+# イベントの設定
+#################################################
 $ ->
   $("#src").bind "textchange", ->
-    console.info "call ugly-prettify func."
     prettyUgly()
-    $(this).trigger("change.autoResize")
-
-  $("#src").bind "paste", ->
-    $(this).trigger("change.autoResize")
 
   $("#src").autoResize
     maxHeight: 10000
@@ -13,14 +11,12 @@ $ ->
     onAfterResize: ->
       newHeight = $("#src").parent().height()
       $("#dest").parent().height newHeight
-      console.info newHeight
-
     animateCallback: ->
       $(this).css opacity: 1
 
-  # select text
+  # テキストを選択する
   $("#select-button").click ->
-    SelectText "dest"
+    select_text "dest"
 
 
 #################################################
@@ -28,10 +24,11 @@ $ ->
 #################################################
 prettyUgly = () ->
 
-  $("#working").hide();
+  $("#working").show();
   $("#working").text($("#src").val());
   $("#dest").html "";
 
+  # google code prettify
   prettyPrint();
 
   $.each $("#working").find("span"), (i, item) ->
@@ -41,14 +38,17 @@ prettyUgly = () ->
     text       = $(this).text()
 
     if nl2br(text) != text
-      text = $(this).text(text).html()
       text = nl2br(text.replace RegExp(" ", "g"), "&nbsp;")
     else
       text = $(this).text(text).html()
+      text = text.replace RegExp(" ", "g"), "&nbsp;"
 
     $("#dest").append( "<font color=" + rgb2hex(color) + ">" + text + "</font>");
 
 
+#################################################
+# 各種関数群
+#################################################
 
 nl2br = (str, is_xhtml) ->
   breakTag = (if (is_xhtml or typeof is_xhtml is "undefined") then "<br />" else "<br>")
@@ -60,7 +60,13 @@ rgb2hex = (rgb) ->
   rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
   "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
 
-SelectText = (element) ->
+count_nl = (str) ->
+  try
+    return (str.match(RegExp("([^>\r\n]?)(\r\n|\n\r|\r|\n)", "g")).length)
+  catch e
+    return 0
+
+select_text = (element) ->
   doc = document
   text = doc.getElementById(element)
   if doc.body.createTextRange

@@ -1,14 +1,9 @@
 (function() {
-  var SelectText, nl2br, prettyUgly, rgb2hex;
+  var count_nl, nl2br, prettyUgly, rgb2hex, select_text;
 
   $(function() {
     $("#src").bind("textchange", function() {
-      console.info("call ugly-prettify func.");
-      prettyUgly();
-      return $(this).trigger("change.autoResize");
-    });
-    $("#src").bind("paste", function() {
-      return $(this).trigger("change.autoResize");
+      return prettyUgly();
     });
     $("#src").autoResize({
       maxHeight: 10000,
@@ -16,8 +11,7 @@
       onAfterResize: function() {
         var newHeight;
         newHeight = $("#src").parent().height();
-        $("#dest").parent().height(newHeight);
-        return console.info(newHeight);
+        return $("#dest").parent().height(newHeight);
       },
       animateCallback: function() {
         return $(this).css({
@@ -26,12 +20,12 @@
       }
     });
     return $("#select-button").click(function() {
-      return SelectText("dest");
+      return select_text("dest");
     });
   });
 
   prettyUgly = function() {
-    $("#working").hide();
+    $("#working").show();
     $("#working").text($("#src").val());
     $("#dest").html("");
     prettyPrint();
@@ -41,10 +35,10 @@
       color = $("." + class_name).css("color");
       text = $(this).text();
       if (nl2br(text) !== text) {
-        text = $(this).text(text).html();
         text = nl2br(text.replace(RegExp(" ", "g"), "&nbsp;"));
       } else {
         text = $(this).text(text).html();
+        text = text.replace(RegExp(" ", "g"), "&nbsp;");
       }
       return $("#dest").append("<font color=" + rgb2hex(color) + ">" + text + "</font>");
     });
@@ -65,7 +59,15 @@
     return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
   };
 
-  SelectText = function(element) {
+  count_nl = function(str) {
+    try {
+      return (str.match(RegExp("([^>\r\n]?)(\r\n|\n\r|\r|\n)", "g")).length);
+    } catch (e) {
+      return 0;
+    }
+  };
+
+  select_text = function(element) {
     var doc, range, selection, text;
     doc = document;
     text = doc.getElementById(element);
