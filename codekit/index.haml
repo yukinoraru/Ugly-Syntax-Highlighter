@@ -41,7 +41,7 @@
         .four.columns
           %a#mobileNav.small.nice.button.show-on-phones{"data-reveal-id" => "navModal", :href => "#"} Nav
           %h1
-            %a{:href => "../"} Ugly Syntax Highlighter
+            %a{:href => "#"} Ugly Syntax Highlighter
         .eight.columns.hide-on-phones
           %strong.right
             %a{:href => "#"} Features
@@ -54,7 +54,7 @@
         .twelve.columns
           .foundation-header
             %h1
-              %a{:href => "index.php"} Ugly Syntax Highlighter
+              %a{:href => "#"} Ugly Syntax Highlighter
             %h4.subheader It's not smart, but compatible for clipboard.
       .row
         .twelve.columns
@@ -74,8 +74,8 @@
                   %div{:style => "float:left;margin: 0 18px 18px; padding: 0px 20px 0 19px; border-left: 1px solid #ddd; "}
                     Options:
                     %br/
-                    %label{:for => "checkbox1"}
-                      %input#checkbox1{:type => "checkbox"}/
+                    %label{:for => "showLineNumber"}
+                      %input#showLineNumber{:type => "checkbox"}/
                       Show Line Number
                     %br/
               %textarea#src.expand{:placeholder => "Paste your code here...", :rows => "13"}
@@ -90,6 +90,15 @@
                       %span#select-button.nice.radius.small.red.button Select all
               #dest
                 highlight code will be shown here...
+
+      .row
+        .twelve.columns
+          %br
+          %br
+          %h3 Features
+          Compatible For Evernote
+
+
 
       / footer
       %footer.row

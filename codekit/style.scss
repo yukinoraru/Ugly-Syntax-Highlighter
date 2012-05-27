@@ -7,8 +7,10 @@ body {
   max-width: 1200px; }
 
 #working {
-  display: none;
-}
+  display: none; }
+
+#src, #dest {
+  line-height: 18px; }
 
 pre {
   margin: 0; }

@@ -3,7 +3,7 @@
 #################################################
 $ ->
   $("#src").bind "textchange", ->
-    prettyUgly()
+    prettyUglify()
 
   $("#src").autoResize
     maxHeight: 10000
@@ -18,14 +18,26 @@ $ ->
   $("#select-button").click ->
     select_text "dest"
 
+  $("#showLineNumber").click ->
+    prettyUglify()
 
 #################################################
 # シンタックスハイライトを有効にする
 #################################################
-prettyUgly = () ->
+prettyUglify = () ->
 
   $("#working").show();
-  $("#working").text($("#src").val());
+
+  # add line number
+  src = $("#src").val()
+  if $("#showLineNumber").is(":checked")
+   tmp = ""
+   $.each src.split("\n"), (i, item) ->
+     tmp += i + ": " + item + "\n"
+   src = tmp
+
+  $("#working").text(src);
+
   $("#dest").html "";
 
   # google code prettify
@@ -35,11 +47,13 @@ prettyUgly = () ->
     #console.info item
     class_name = $(this).attr("class")
     color      = $("." + class_name).css("color")
-    text       = $(this).text()
+    text       = expand_tab($(this).text())
 
     if nl2br(text) != text
+      #console.info("nl2br:"+text.replace RegExp(" ", "g"), "&nbsp;")
       text = nl2br(text.replace RegExp(" ", "g"), "&nbsp;")
     else
+      #console.info("raw:"+text)
       text = $(this).text(text).html()
       text = text.replace RegExp(" ", "g"), "&nbsp;"
 
@@ -49,6 +63,17 @@ prettyUgly = () ->
 #################################################
 # 各種関数群
 #################################################
+
+expand_tab = (text, n = 4) ->
+  repeat = (pattern, count) ->
+    return ""  if count < 1
+    result = ""
+    while count > 0
+      result += pattern  if count & 1
+      count >>= 1
+      pattern += pattern
+    result
+  return text.replace RegExp("\t", "g"), repeat("&nbsp;", n)
 
 nl2br = (str, is_xhtml) ->
   breakTag = (if (is_xhtml or typeof is_xhtml is "undefined") then "<br />" else "<br>")
