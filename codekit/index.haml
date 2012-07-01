@@ -23,7 +23,26 @@
     %script{:src => "javascripts/jquery.textchange.min.js"}
     / Google Code Prettify
     %script{:src => "vendor/google-code-prettify/prettify.js"}
+    / Google Code Prettify - Languages
+    %script{:src => "vendor/google-code-prettify/lang-apollo.js"}
+    %script{:src => "vendor/google-code-prettify/lang-clj.js"}
     %script{:src => "vendor/google-code-prettify/lang-css.js"}
+    %script{:src => "vendor/google-code-prettify/lang-go.js"}
+    %script{:src => "vendor/google-code-prettify/lang-hs.js"}
+    %script{:src => "vendor/google-code-prettify/lang-lisp.js"}
+    %script{:src => "vendor/google-code-prettify/lang-lua.js"}
+    %script{:src => "vendor/google-code-prettify/lang-ml.js"}
+    %script{:src => "vendor/google-code-prettify/lang-n.js"}
+    %script{:src => "vendor/google-code-prettify/lang-proto.js"}
+    %script{:src => "vendor/google-code-prettify/lang-scala.js"}
+    %script{:src => "vendor/google-code-prettify/lang-sql.js"}
+    %script{:src => "vendor/google-code-prettify/lang-tex.js"}
+    %script{:src => "vendor/google-code-prettify/lang-vb.js"}
+    %script{:src => "vendor/google-code-prettify/lang-vhdl.js"}
+    %script{:src => "vendor/google-code-prettify/lang-wiki.js"}
+    %script{:src => "vendor/google-code-prettify/lang-xq.js"}
+    %script{:src => "vendor/google-code-prettify/lang-yaml.js"}
+
     / Foundation
     %script{:src => "javascripts/foundation.js"}
     %script{:src => "javascripts/modernizr.foundation.js"}
@@ -67,10 +86,7 @@
                   %div{:style => "float:left;"}
                     Language:
                     %br/
-                    %select#niceDropdown
-                      %option C/C++
-                      %option Ruby
-                      %option PHP
+                    %select#langSelect
                   %div{:style => "float:left;margin: 0 18px 18px; padding: 0px 20px 0 19px; border-left: 1px solid #ddd; "}
                     Options:
                     %br/
