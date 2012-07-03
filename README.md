@@ -1,4 +1,4 @@
-# Ugly Syntax Higlighter
+# [Ugly Syntax Higlighter](http://ush.herokuapp.com/)
 
 #### Compatible for all types of editors when copy/paste.
 
@@ -15,5 +15,8 @@ Syntax hilight uses google-code-prettify.
 Use [CodeKit](http://incident57.com/codekit/) for development.
 It converts HAML, SASS, CoffeeScript automatically.
 
+### App on Heroku
+[http://ush.herokuapp.com/](http://ush.herokuapp.com/)
 
+Have fun :)
 
