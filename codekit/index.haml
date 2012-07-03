@@ -58,15 +58,14 @@
     #navBar.container
       .row
         .four.columns
-          %a#mobileNav.small.nice.button.show-on-phones{"data-reveal-id" => "navModal", :href => "#"} Nav
           %h1
-            %a{:href => "#"} Ugly Syntax Highlighter
+            %a{:href => "index.html"} Ugly Syntax Highlighter
         .eight.columns.hide-on-phones
           %strong.right
-            %a{:href => "#"} Features
-            %a{:href => "#"} Usage
-            %a{:href => "http://github.com/zurb/foundation"} Github
-            %a.small.red.nice.button.src-download{:href => "../files/foundation-download-2.2.1.zip"} Download
+            %a{:href => "#features"} Features
+            %a{:href => "#usage"} Usage
+            %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter"} Github
+            %a.small.red.nice.button.src-download{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter/zipball/master"} Download
     / container
     .container
       .row
@@ -111,36 +110,86 @@
         .twelve.columns
           %br
           %br
+          %a{:name => "features"}
           %h3 Features
-          Compatible For Evernote
+          %h4 * Compatible for ALL TYPES OF EDITORS.
+          This syntax hilight uses only font-tag, so you can use copy/paste in legacy rich text editors.
+          %br
+          The below photos are screenshot at Evernote, YUI Rich Text Editor, and Yahoo! Japan's rich text editor.
+          %br
+          %br
+          %center
+            #orbit-container{:style => "width:400px;"}
+              #featured
+                %img{:src => "images/evernote.png"}
+                %img{:src => "images/yui-rich-text.png"}
+                %img{:src => "images/yahoo-jpn-rte.png"}
 
+          %br
+          %br
+          %h4 * Various Languages
+          You can use many languages for syntax hilight.
+
+          %br
+          %br
+          %h4 * Available for Offline
+          This syntax highlight is driven by pure Javascript.
+
+      .row
+        .twelve.columns
+          %br
+          %br
+          %a{:name => "usage"}
+          %h3 Usage
+          It's simple. Just PASTE and Copy. That's it.
+          %br
+          %br
+
+          %h4 Local Usage
+          %ol
+            %li
+              Get software.
+              %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter/zipball/master"} Click here
+              to download or
+              %strong git clone https://github.com/yukinoraru/Ugly-Syntax-Highlighter.git
+
+            %li
+              Extract and open "index.html" like this:
+              %blockquote
+                \% git clone https://github.com/yukinoraru/Ugly-Syntax-Highlighter.git
+                %br
+                \% cd Ugly-Syntax-Highlighter/webroot
+                %br
+                \% open index.html
 
 
       / footer
       %footer.row
         %section.five.columns
           %h6
-            %strong Made by ZURB
+            %strong INFORMATION
           %p
-            Foundation is made by
-            = succeed "," do
-              %a{:href => "http://www.zurb.com/"} ZURB
-            an
-            %a{:href => "http://www.zurb.com/words/design-process"} interaction design and strategy company
-            located in Campbell, California. We've put over 10 years of experience building web products, services and websites into this framework.
-            %a{:href => "../about.php"} Foundation Info and Goodies →
+            This product is free, open-source software.
+            The source code is available over at
+            %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter"} GitHub.
+
         %section.three.columns
           %h6
-            %strong Using Foundation?
+            %strong REPORTING ISSUES
           %p
-            Let us know how you're using Foundation and we might feature you as an example!
-            %a{:href => "mailto:foundation@zurb.com?subject=I'm%20using%20Foundation"} Get in touch →
+            Please report any issues you find over to the
+            %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter"} GitHub.
+
         %section.four.columns
           %h6
-            %strong Need some help?
+            %strong ACKNOWLEDGEMENTS
           %p
-            For quick answers or help
-            %a{:href => "mailto:foundation@zurb.com"} email us →
+            Thanks to the hard work of this product's dependency projects.
+            %a{:href => "http://code.google.com/p/google-code-prettify/"} google-code-prettify →
+            %br
+            %a{:href => "http://foundation.zurb.com/"} ZURB Foundation →
+            %br
+            %a{:href => "http://incident57.com/codekit/"} CodeKit →
 
 
     %pre{:class => "prettyprint", :id => "working"}>

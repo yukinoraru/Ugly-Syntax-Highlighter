@@ -140,7 +140,7 @@
       lang = languages[_i];
       $("#langSelect").append("<option>" + lang["name"] + "</option>");
     }
-    return $("#langSelect").change(function() {
+    $("#langSelect").change(function() {
       var selectedIndex;
       selectedIndex = $("#langSelect :selected").index();
       console.log(selectedIndex);
@@ -148,11 +148,11 @@
       $("#working").addClass("prettyprint");
       return $("#working").addClass(languages[selectedIndex]["class"]);
     });
+    return $("#featured").orbit();
   });
 
   prettyUglify = function() {
     var src, tmp;
-    $("#working").show();
     src = $("#src").val();
     if ($("#showLineNumber").is(":checked")) {
       tmp = "";

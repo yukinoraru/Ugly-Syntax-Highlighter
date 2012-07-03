@@ -77,12 +77,15 @@ $ ->
     $("#working").addClass("prettyprint");
     $("#working").addClass(languages[selectedIndex]["class"]);
 
+  #
+  $("#featured").orbit()
+
 #################################################
 # シンタックスハイライトを有効にする
 #################################################
 prettyUglify = () ->
 
-  $("#working").show();
+  #$("#working").show();
 
   # add line number
   src = $("#src").val()
